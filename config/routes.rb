@@ -1,7 +1,7 @@
 PromoSite::Application.routes.draw do
   root :to => 'static_pages#home'
 
-  match '/about' => 'static_pages#view'
+  match '/about' => 'static_pages#about'
   match '/contacts' => 'static_pages#contacts'
 
   # The priority is based upon order of creation:
