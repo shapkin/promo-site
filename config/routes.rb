@@ -1,4 +1,12 @@
 PromoSite::Application.routes.draw do
+  get "services/index"
+
+  get "services/show"
+
+  get "categories/index"
+
+  get "categories/show"
+
   root :to => 'static_pages#home'
 
   match '/about' => 'static_pages#about'

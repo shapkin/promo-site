@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 gem 'bootstrap-sass'
 gem 'will_paginate'
+gem "paperclip", "~> 3.0"
 
 group :development, :test do
   gem 'mysql2'
