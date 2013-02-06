@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @services = Service.all
+    @news = NewsItem.all
   end
 
   def about

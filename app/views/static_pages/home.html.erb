@@ -3,11 +3,13 @@
   <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
 </div>
 
-<div class="row-fluid marketing">
-  <% @services.each do |service| -%>
-    <div class="span6">
-      <h4><%= service.name %></h4>
-      <p><%= service.description %></p>
-    </div>
-  <% end -%>
-</div>
+<% if @news.any? -%>
+  <div class="row-fluid marketing">
+    <% @news.each do |news_item| -%>
+      <div class="span4">
+        <h4><%= news_item.title %></h4>
+        <p><%= news_item.body %></p>
+      </div>
+    <% end -%>
+  </div>
+<% end -%>
