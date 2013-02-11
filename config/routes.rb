@@ -12,7 +12,9 @@ PromoSite::Application.routes.draw do
   match '/about' => 'static_pages#about'
   match '/contacts' => 'static_pages#contacts'
 
-  resources :news_items
+  scope "/admin" do
+    resources :news_items
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

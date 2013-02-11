@@ -1,0 +1,8 @@
+<h1>Add New News</h1>
+
+<%= form_for(@news_item) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= render 'fields', f: f %>
+  <br />
+  <%= f.submit "Save", class: "btn btn-large btn-primary" %>
+<% end %>

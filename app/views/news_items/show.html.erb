@@ -1,0 +1,10 @@
+<%= link_to 'Back to News List', news_items_path %>
+
+<h1 class='clearfix'>
+  <%= @news_item.title %>
+  <span class='pull-right timestamp'>
+    Posted <%= time_ago_in_words(@news_item.updated_at) %> ago.
+  </span>
+</h1>
+
+<%= @news_item.body %>

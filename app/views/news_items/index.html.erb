@@ -1,0 +1,9 @@
+<p style="text-align:right;">
+  <%= link_to 'Add New News', new_news_item_path %>
+</p>
+<% @news_items.each do |news_item| -%>
+  <h1>
+    <%= news_item.title %>
+    <span class='pull-right' style='font-size:14px;'><%= link_to 'edit', edit_news_item_path(news_item) %></span>
+  </h1>
+<% end -%>
