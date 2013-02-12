@@ -2,8 +2,12 @@
   <%= link_to 'Add New News', new_news_item_path %>
 </p>
 <% @news_items.each do |news_item| -%>
-  <h1>
-    <%= news_item.title %>
-    <span class='pull-right' style='font-size:14px;'><%= link_to 'edit', edit_news_item_path(news_item) %></span>
-  </h1>
+  <h3>
+    <%= link_to news_item.title, news_item %>
+    <span class='pull-right' style='font-size:14px;'>
+      <%= link_to 'edit', edit_news_item_path(news_item) %> |
+      <%= link_to "delete", news_item, method: :delete,
+                                       data: { confirm: "You sure?" } %>
+    </span>
+  </h3>
 <% end -%>

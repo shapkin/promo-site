@@ -8,6 +8,13 @@ class NewsItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @news_item = NewsItem.find(params[:id])
+    @news_item.destroy
+    flash[:success] = "News deleted."
+    redirect_to news_items_path
+  end
+
   def edit
     @news_item = NewsItem.find(params[:id])
   end
