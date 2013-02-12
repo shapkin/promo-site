@@ -1,2 +1,1 @@
-promo-site
-==========
+Typical promo site. Contains next sections: main page, about page, contacts page, news page.
