@@ -1,10 +1,8 @@
 PromoSite::Application.routes.draw do
   get "services/index"
-
   get "services/show"
 
   get "categories/index"
-
   get "categories/show"
 
   root :to => 'static_pages#home'
@@ -13,6 +11,7 @@ PromoSite::Application.routes.draw do
   match '/contacts' => 'static_pages#contacts'
 
   resources :news_items, :path => '/news'
+  resources :feedbacks
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
