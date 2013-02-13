@@ -1,6 +1,6 @@
 PromoSite::Application.routes.draw do
-  get "services/index"
-  get "services/show"
+  match 'services/' => 'services#index'
+  match 'services/:id' => 'services#show'
 
   get "categories/index"
   get "categories/show"

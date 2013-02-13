@@ -1,8 +1,10 @@
 <div class="masthead">
   <ul class="nav nav-pills pull-right">
     <li <%= active_tab? 'home' %>><%= link_to "Home", root_path %></li>
-    <li <%= active_tab? 'index' %>><%= link_to "News", news_items_path %></li>
     <li <%= active_tab? 'about' %>><%= link_to "About", about_path %></li>
+    <li><%= link_to "News", news_items_path %></li>
+    <li><%= link_to "Services", '/services' %></li>
+    <li><%= link_to "Feedbacks", '/feedbacks' %></li>
     <li <%= active_tab? 'contacts' %>><%= link_to "Contacts", contacts_path %></li>
   </ul>
   <h3 class="muted">Project name</h3>

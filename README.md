@@ -1,1 +1,1 @@
-Typical promo site. Contains next sections: main page, about page, contacts page, news page.
+Typical promo site. Contains next sections: main page, about page, contacts page, news page, feedbacks page, services page (each service belongs to some of category).
