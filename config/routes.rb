@@ -1,4 +1,6 @@
 PromoSite::Application.routes.draw do
+  devise_for :users
+
   match 'services/' => 'services#index'
   match 'services/:id' => 'services#show'
 
