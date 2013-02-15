@@ -1,4 +1,6 @@
 class NewsItemsController < ApplicationController
+  before_filter :admin_user, except: [:show, :index]
+
   def create
     @news_item = NewsItem.new(params[:news_item])
     if @news_item.save
@@ -39,4 +41,10 @@ class NewsItemsController < ApplicationController
       render :edit
     end
   end
+
+  private
+
+    def admin_user
+      redirect_to(root_path) unless current_user.admin?
+    end
 end
