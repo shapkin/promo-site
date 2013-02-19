@@ -1,13 +1,13 @@
-<p style="text-align:right;">
-  <%= link_to 'Add New News', new_news_item_path %>
-</p>
+<%= link_to('<p style="text-align:right;">Add New News</p>', new_news_item_path) if manager? -%>
 <% @news_items.each do |news_item| -%>
   <h3>
     <%= link_to news_item.title, news_item %>
+    <% if manager? -%>
     <span class='pull-right' style='font-size:14px;'>
       <%= link_to 'edit', edit_news_item_path(news_item) %> |
       <%= link_to "delete", news_item, method: :delete,
                                        data: { confirm: "You sure?" } %>
     </span>
+    <% end -%>
   </h3>
 <% end -%>
