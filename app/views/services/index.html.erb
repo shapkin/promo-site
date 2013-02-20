@@ -1,1 +1,17 @@
-<h1>Services list.</h1>
+<h1>Our Services.</h1>
+
+<% @services.each do |service| -%>
+  <div class='row'>
+    <div class='span4'>
+      <% if manager? -%>
+      <span class='pull-right' style='font-size:14px;'>
+        <%= link_to 'edit', edit_category_service_path(service) %> |
+        <%= link_to "delete", service, method: :delete,
+                                         data: { confirm: "You sure?" } %>
+      </span>
+      <% end -%>
+      <h4><%= service.name %></h4>
+      <%= service.description %>
+    </div>
+  </div>
+<% end -%>
