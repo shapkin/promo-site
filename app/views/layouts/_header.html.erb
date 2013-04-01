@@ -6,6 +6,9 @@
     <li><%= link_to "Services", '/services' %></li>
     <li><%= link_to "Feedbacks", '/feedbacks' %></li>
     <li <%= active_tab? 'contacts' %>><%= link_to "Contacts", contacts_path %></li>
+    <% if current_user %>
+    <li><a href="#"><strong>Welcome <%= current_user.name %>!</strong></a></li>
+    <% end %>
   </ul>
   <h3 class="muted">Project name</h3>
 </div>

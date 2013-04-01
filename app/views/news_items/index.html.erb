@@ -1,4 +1,6 @@
-<%= link_to('<p style="text-align:right;">Add New News</p>', new_news_item_path) if manager? -%>
+<% if manager? -%>
+<p style="text-align:right;"><%= link_to 'Add New News', new_news_item_path %></p>
+<% end -%>
 <% @news_items.each do |news_item| -%>
   <h3>
     <%= link_to news_item.title, news_item %>
