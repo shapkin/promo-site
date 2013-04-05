@@ -3,12 +3,9 @@ PromoSite::Application.routes.draw do
 
   match '/about' => 'static_pages#about'
   match '/contacts' => 'static_pages#contacts'
-  match '/services' => 'services#index'
   
-  resources :categories do
-    resources :services
-  end
-
+  resources :categories
+  resources :services
   resources :news_items, :path => '/news'
   resources :feedbacks
 

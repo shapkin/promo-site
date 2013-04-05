@@ -1,0 +1,12 @@
+<%= link_to 'Back to Services List', services_path %>
+
+<h1>Update Service</h1>
+
+<%= form_for @service, html: { multipart: true } do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+  <%= render 'fields', f: f %>
+  <br />
+  <%= image_tag @service.photo.url(:thumb) if @service.photo %>
+  <br /><br />
+  <%= f.submit "Update", class: "btn btn-large btn-primary" %>
+<% end %>
