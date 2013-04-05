@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130215145053) do
+ActiveRecord::Schema.define(:version => 20130405114252) do
 
   create_table "categories", :force => true do |t|
     t.string   "name"
@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(:version => 20130215145053) do
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
     t.text     "body"
-    t.boolean  "is_approved"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.boolean  "is_approved", :default => false
+    t.datetime "created_at",                     :null => false
+    t.datetime "updated_at",                     :null => false
   end
 
   create_table "news_items", :force => true do |t|
