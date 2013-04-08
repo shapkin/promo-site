@@ -15,7 +15,6 @@ class ServicesController < ApplicationController
   end
 
   def index
-    @categories = Category.all
     @services = Service.all
   end
 

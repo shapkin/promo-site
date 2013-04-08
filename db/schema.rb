@@ -11,15 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130405114252) do
-
-  create_table "categories", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  add_index "categories", ["name"], :name => "index_categories_on_name", :unique => true
+ActiveRecord::Schema.define(:version => 20130408124018) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
@@ -44,12 +36,9 @@ ActiveRecord::Schema.define(:version => 20130405114252) do
     t.integer  "photo_file_size"
     t.datetime "photo_updated_at"
     t.decimal  "price",              :precision => 10, :scale => 0
-    t.integer  "category_id"
     t.datetime "created_at",                                        :null => false
     t.datetime "updated_at",                                        :null => false
   end
-
-  add_index "services", ["category_id"], :name => "index_services_on_category_id"
 
   create_table "users", :force => true do |t|
     t.string   "email",                  :default => "",    :null => false
