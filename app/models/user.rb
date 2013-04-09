@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  has_many :feedbacks, dependent: :nullify
+
   # Include default devise modules. Others available are:
   # :token_authenticatable, :confirmable,
   # :lockable, :timeoutable, :trackable and :omniauthable

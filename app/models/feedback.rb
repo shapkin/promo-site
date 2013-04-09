@@ -1,3 +1,5 @@
 class Feedback < ActiveRecord::Base
-  attr_accessible :body, :is_approved, :name
+  belongs_to :user
+
+  attr_accessible :body, :is_approved
 end
