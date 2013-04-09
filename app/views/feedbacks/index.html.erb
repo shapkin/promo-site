@@ -1,1 +1,8 @@
 <h1>Feedbacks list.</h1>
+
+<% @feedbacks.each do |feedback| %>
+  <blockquote>
+    <p><%= feedback.body %></p>
+    <%= content_tag(:small, feedback.user ? feedback.user.name : "By Anonymous") %>
+  </blockquote>
+<% end %>

@@ -1,17 +1,12 @@
 class FeedbacksController < ApplicationController
-  def new
-  end
+  include ApplicationHelper
 
   def index
+    @feedbacks = Feedback.all
+    @feedbacks = @feedbacks.approved unless manager?
   end
 
   def show
-  end
-
-  def edit
-  end
-
-  def update
   end
 
   def destroy
