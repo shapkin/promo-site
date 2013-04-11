@@ -25,5 +25,7 @@ class FeedbacksController < ApplicationController
   end
 
   def destroy
+    @feedback = Feedback.find(params[:id])
+    @feedback.destroy
   end
 end
