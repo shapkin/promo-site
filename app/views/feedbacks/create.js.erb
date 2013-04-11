@@ -1,0 +1,6 @@
+<% if @feedback.new_record? %>
+  $('#feedback_body').effect('highlight', { color: 'red' });
+<% else %>
+  $('div#feedbacks').append("<%= escape_javascript(render @feedback) %>");
+  $('#<%= dom_id(@feedback) %>').effect('highlight');
+<% end %>

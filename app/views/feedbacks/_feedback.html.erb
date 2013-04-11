@@ -1,0 +1,4 @@
+<blockquote id="<%= dom_id(feedback) %>">
+  <p><%= feedback.body %></p>
+  <%= content_tag(:small, feedback.user ? feedback.user.name : "By Anonymous") %>
+</blockquote>

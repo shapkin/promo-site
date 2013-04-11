@@ -1,8 +1,15 @@
 <h1>Feedbacks list.</h1>
 
-<% @feedbacks.each do |feedback| %>
-  <blockquote>
-    <p><%= feedback.body %></p>
-    <%= content_tag(:small, feedback.user ? feedback.user.name : "By Anonymous") %>
-  </blockquote>
+<div id="feedbacks">
+  <%= render @feedbacks %>
+</div>
+
+<% if current_user %>
+  <h4>Add new feedback:</h4>
+  <%= form_for current_user.feedbacks.new, remote: true do |f| %>
+      <%= f.label :body %>
+      <%= f.text_area :body, rows: 3, class: 'input-xlarge' %>
+      <br />
+      <%= f.submit "Add", class: "btn btn-large btn-primary" %>
+  <% end %>
 <% end %>
