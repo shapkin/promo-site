@@ -7,7 +7,11 @@ PromoSite::Application.routes.draw do
 
   resources :services
   resources :news_items, :path => '/news'
-  resources :feedbacks
+  resources :feedbacks do
+    member do
+      post :approve
+    end
+  end
 
   devise_for :users
 end

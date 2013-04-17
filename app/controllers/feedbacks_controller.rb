@@ -1,5 +1,7 @@
 class FeedbacksController < ApplicationController
   include ApplicationHelper
+  before_filter :authenticate_user!, only: [:create, :approve]
+  before_filter :admin_user,         only: [:approve, :destroy]
 
   def create
     @feedback = current_user.feedbacks.build(params[:feedback])
@@ -17,15 +19,27 @@ class FeedbacksController < ApplicationController
   end
 
   def index
-    @feedbacks = Feedback.all
-    @feedbacks = @feedbacks.approved unless manager?
+    @feedbacks = Feedback.approved if manager?
+    @feedbacks ||= Feedback.all
   end
 
   def show
+  end
+
+  def approve
+    @feedback = Feedback.find(params[:id])
+    @feedback.is_approved = true
+    @feedback.save
   end
 
   def destroy
     @feedback = Feedback.find(params[:id])
     @feedback.destroy
   end
+
+  private
+
+    def admin_user
+      redirect_to(new_user_session_path) unless manager?
+    end
 end

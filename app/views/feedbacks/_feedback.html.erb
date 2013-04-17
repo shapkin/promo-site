@@ -1,10 +1,18 @@
 <blockquote id="<%= dom_id(feedback) %>">
   <p>
     <%= feedback.body %>
-    <%= link_to("remove", feedback, method:  :delete,
+    <% if manager? %>
+    <%= link_to "remove", feedback, method:  :delete,
                                     remote:  true,
                                     confirm: "Are you sure?",
-                                    class:   "btn btn-danger pull-right") if manager? %>
+                                    class:   "btn btn-danger pull-right" %>
+    <%= link_to("approve", approve_feedback_path(feedback),
+                                    method:  :post,
+                                    remote:  true,
+                                    id:      "approve_#{dom_id(feedback)}",
+                                    class:   "btn btn-warning pull-right",
+                                    style:   'margin-right:10px;') unless feedback.is_approved? %>
+    <% end %>
   </p>
   <%= content_tag(:small, feedback.user ? feedback.user.name : "By Anonymous") %>
 </blockquote>
