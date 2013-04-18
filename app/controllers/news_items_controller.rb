@@ -19,15 +19,15 @@ class NewsItemsController < ApplicationController
   end
 
   def show
-    @news_item = NewsItem.find(params[:id])
+    @news_item = get_news_item
   end
 
   def edit
-    @news_item = NewsItem.find(params[:id])
+    @news_item = get_news_item
   end
 
   def update
-    @news_item = NewsItem.find(params[:id])
+    @news_item = get_news_item
     if @news_item.update_attributes(params[:news_item])
       redirect_to news_items_path, flash: { success: "News updated." }
     else
@@ -36,7 +36,7 @@ class NewsItemsController < ApplicationController
   end
 
   def destroy
-    @news_item = NewsItem.find(params[:id])
+    @news_item = get_news_item
     @news_item.destroy
     redirect_to news_items_path, flash: { success: "News deleted." }
   end
@@ -45,5 +45,9 @@ class NewsItemsController < ApplicationController
 
     def admin_user
       redirect_to(new_user_session_path) unless !current_user.nil? && current_user.admin?
+    end
+
+    def get_news_item
+      NewsItem.find(params[:id])
     end
 end
