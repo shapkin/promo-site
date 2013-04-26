@@ -5,6 +5,7 @@ gem 'bootstrap-sass'
 gem 'will_paginate'
 gem 'paperclip', '~> 3.0'
 gem 'devise'
+gem 'friendly_id', '~> 4.0.9'
 
 group :development, :test do
   gem 'mysql2'
