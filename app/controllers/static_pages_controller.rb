@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def home
-    @news = NewsItem.all
+    @news = NewsItem.recent(3)
   end
 
   def about
