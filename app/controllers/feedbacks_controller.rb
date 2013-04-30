@@ -5,6 +5,7 @@ class FeedbacksController < ApplicationController
 
   def create
     @feedback = current_user.feedbacks.build(params[:feedback])
+    @feedback.is_approved = manager?
     @feedback.save
     respond_to do |format|
       format.html do
@@ -19,8 +20,7 @@ class FeedbacksController < ApplicationController
   end
 
   def index
-    @feedbacks = Feedback.approved if manager?
-    @feedbacks ||= Feedback.all
+    @feedbacks = manager? ? Feedback.all : Feedback.approved
   end
 
   def show
