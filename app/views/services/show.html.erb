@@ -1,2 +1,13 @@
-<h1>Services#show</h1>
-<p>Find me in app/views/services/show.html.erb</p>
+<h1><%= @service.name %></h1>
+<h4><%= number_to_currency @service.price %></h4>
+
+<div class="media">
+  <% if @service.photo -%>
+  <a class="pull-left" href="#">
+    <%= image_tag @service.photo.url(:medium), class: 'media-object'  %>
+  </a>
+  <% end -%>
+  <div class="media-body">
+    <%= @service.description %>
+  </div>
+</div>
